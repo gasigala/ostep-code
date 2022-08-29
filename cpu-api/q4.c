@@ -15,10 +15,10 @@ main(int argc, char *argv[])
         exit(1);
     } else if (rc == 0) {
         char *myargs[3];
-        myargs[0] = strdup("ls");  
+        myargs[0] = strdup("/bin/ls");  
         myargs[1] = strdup("-l"); // argument: file to count
         myargs[2] = NULL;           // marks end of array
-        execvp(myargs[0], myargs);  // runs word count
+        execv(myargs[0], myargs);  // runs word count
         printf("this shouldn't print out");
     } else {
         // parent goes down this path (original process)
