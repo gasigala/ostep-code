@@ -19,13 +19,15 @@ int fork_or_die() {
 
 int main(int argc, char *argv[]) {
     // process a
-    printf("hello, I am child (pid:%d)\n", (int) getpid());
+    printf("hello, I am A (pid:%d)\n", (int) getpid());
     if (fork_or_die() == 0) {
         sleep(6);
-        printf("hello, I am child (pid:%d)\n", (int) getpid());
+        printf("hello, I am B (pid:%d)\n", (int) getpid());
         // process b
         if (fork_or_die() == 0){
             sleep(6);
+            printf("hello, I am C (pid:%d)\n", (int) getpid());
+
         exit(0);
     }
     if (fork_or_die() == 0) {
